@@ -25,20 +25,33 @@ namespace CubeRotate
             InitializeComponent();
         }
 
+        private ICubeRotationHandler cubeRotationHandler;
+        private ImageSourceManager imageSourceManager;
+        private Image front, top, right;
+
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
-            var frontPolygon = (Image) this.FindName("FrontPolygon");
-            //BitmapImage bi3 = new BitmapImage();
-            //bi3.BeginInit();
-            //bi3.UriSource = new Uri("front-1.PNG", UriKind.Relative);
-            //bi3.EndInit();
-            //frontPolygon.Source = bi3;
+            cubeRotationHandler = new CubeRotationHandler();
+            imageSourceManager = new ImageSourceManager();
+            front = (Image)FindName("frontImage");
+            top = (Image)FindName("topImage");
+            right = (Image)FindName("rightImage");
+            updateImages();
+        }
+
+        private void updateImages()
+        {
+            front.Source = imageSourceManager.getImageByKey(cubeRotationHandler.getFrontImage().Key);
+            right.Source = imageSourceManager.getImageByKey(cubeRotationHandler.getRightImage().Key);
+            top.Source = imageSourceManager.getImageByKey(cubeRotationHandler.getTopImage().Key);
         }
 
         private void onUpClick(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("UP");
+            cubeRotationHandler.flipUp();
+            updateImages();
         }
         private void onRightClick(object sender, RoutedEventArgs e)
         {

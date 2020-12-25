@@ -33,7 +33,7 @@
             
             
             <StackPanel Grid.Column="0" Grid.Row="1">
-                <Image Source="5.PNG" Width="150" Height="150" x:Name="rightImage" />
+                <Image Width="150" Height="150" x:Name="rightImage" />
             </StackPanel>
 
             <StackPanel Grid.Column="1" Grid.Row="1">
@@ -55,13 +55,13 @@
             </StackPanel>
 
             <StackPanel Grid.Column="0" Grid.Row="1">
-                <Image Source="2.PNG" Width="150" Height="150" x:Name="upperImage" />
+                <Image Width="150" Height="150" x:Name="topImage" />
             </StackPanel>
 
             <StackPanel Grid.Column="0" Grid.Row="0">
                 <Canvas Height="150" Width="150">
                     <Canvas.Background>
-                        <VisualBrush Visual="{Binding ElementName=upperImage}">
+                        <VisualBrush Visual="{Binding ElementName=topImage}">
                             <VisualBrush.Transform>
                                 <RotateTransform Angle="0" CenterX="75" CenterY="75"/>
                             </VisualBrush.Transform>
@@ -77,7 +77,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="0" Grid.Row="1">
-                <Image Source="1.png" Width="150" Height="150" x:Name="frontImage" />
+                <Image Width="150" Height="150" x:Name="frontImage" />
             </StackPanel>
 
             <StackPanel Grid.Column="0" Grid.Row="1">
