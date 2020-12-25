@@ -28,7 +28,8 @@ namespace CubeRotate
         private ICubeRotationHandler cubeRotationHandler;
         private ImageSourceManager imageSourceManager;
         private Image front, top, right;
-
+        private RotateTransform frontRotateTransform, topRotateTransform, rightRotateTransform;
+        
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
@@ -37,6 +38,10 @@ namespace CubeRotate
             front = (Image)FindName("frontImage");
             top = (Image)FindName("topImage");
             right = (Image)FindName("rightImage");
+            frontRotateTransform = (RotateTransform)FindName("frontRotate");
+            topRotateTransform = (RotateTransform)FindName("topRotate");
+            rightRotateTransform = (RotateTransform)FindName("rightRotate");
+
             updateImages();
         }
 
@@ -45,6 +50,24 @@ namespace CubeRotate
             front.Source = imageSourceManager.getImageByKey(cubeRotationHandler.getFrontImage().Key);
             right.Source = imageSourceManager.getImageByKey(cubeRotationHandler.getRightImage().Key);
             top.Source = imageSourceManager.getImageByKey(cubeRotationHandler.getTopImage().Key);
+
+            rightRotateTransform.Angle = resolveAngel(cubeRotationHandler.getRightImage().Direction) + 90;
+            topRotateTransform.Angle = resolveAngel(cubeRotationHandler.getTopImage().Direction);
+            frontRotateTransform.Angle = resolveAngel(cubeRotationHandler.getFrontImage().Direction);
+        }
+
+        private double resolveAngel(Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.EAST:
+                    return 90;
+                case Direction.SOUTH:
+                    return 180;
+                case Direction.WEST:
+                    return 270;
+            }
+            return 0;
         }
 
         private void onUpClick(object sender, RoutedEventArgs e)

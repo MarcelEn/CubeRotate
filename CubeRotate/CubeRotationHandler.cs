@@ -58,13 +58,15 @@ namespace CubeRotate
 
         public void flipUp()
         {
-            var newImageDescriptions = new List<ImageDescription>();
-            newImageDescriptions.Add(getTopImage());
-            newImageDescriptions.Add(getBackImage());
-            newImageDescriptions.Add(getBottomImage());
-            newImageDescriptions.Add(getFrontImage());
-            newImageDescriptions.Add(getRightImage());
-            newImageDescriptions.Add(getLeftImage());
+            var newImageDescriptions = new List<ImageDescription>
+            {
+                getTopImage(),
+                getBackImage(),
+                getBottomImage(),
+                getFrontImage(),
+                getRightImage(),
+                getLeftImage()
+            };
 
             imageDescriptions = newImageDescriptions;
 

@@ -41,7 +41,7 @@
                     <Canvas.Background>
                         <VisualBrush Visual="{Binding ElementName=rightImage}">
                             <VisualBrush.Transform>
-                                <RotateTransform Angle="0" CenterX="75" CenterY="75"/>
+                                <RotateTransform x:Name="rightRotate" Angle="0" CenterX="75" CenterY="75"/>
                             </VisualBrush.Transform>
                         </VisualBrush>
                     </Canvas.Background>
@@ -63,7 +63,7 @@
                     <Canvas.Background>
                         <VisualBrush Visual="{Binding ElementName=topImage}">
                             <VisualBrush.Transform>
-                                <RotateTransform Angle="0" CenterX="75" CenterY="75"/>
+                                <RotateTransform x:Name="topRotate" Angle="0" CenterX="75" CenterY="75"/>
                             </VisualBrush.Transform>
                         </VisualBrush>
                     </Canvas.Background>
@@ -85,7 +85,7 @@
                     <Canvas.Background>
                         <VisualBrush Visual="{Binding ElementName=frontImage}">
                             <VisualBrush.Transform>
-                                <RotateTransform Angle="0" CenterX="75" CenterY="75"/>
+                                <RotateTransform x:Name="frontRotate" Angle="0" CenterX="75" CenterY="75"/>
                             </VisualBrush.Transform>
                         </VisualBrush>
                     </Canvas.Background>
