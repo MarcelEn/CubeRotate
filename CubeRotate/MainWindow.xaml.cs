@@ -25,6 +25,19 @@ namespace CubeRotate
             InitializeComponent();
         }
 
+        protected override void OnInitialized(EventArgs e)
+        {
+            base.OnInitialized(e);
+            var frontPolygon = (Image) this.FindName("FrontPolygon");
+            frontPolygon.Visibility = Visibility.Hidden;
+
+            //BitmapImage bi3 = new BitmapImage();
+           // bi3.BeginInit();
+            //bi3.UriSource = new Uri("front-1.PNG", UriKind.Relative);
+            //bi3.EndInit();
+            //frontPolygon.Source = bi3;
+        }
+
         private void onUpClick(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("UP");
