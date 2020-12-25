@@ -52,6 +52,20 @@ namespace CubeRotate
             leftEqual(Direction.SOUTH, ImageKey.LEFT);
             rightEqual(Direction.SOUTH, ImageKey.RIGHT);
         }
+        [Test]
+        public void itCorrectlyFlipsRight()
+        {
+            Handler.flipRight();
+
+            frontEqual(Direction.NORTH, ImageKey.LEFT);
+            backEqual(Direction.SOUTH, ImageKey.RIGHT);
+            rightEqual(Direction.WEST, ImageKey.FRONT);
+            leftEqual(Direction.EAST, ImageKey.BACK);
+
+            bottomEqual(Direction.EAST, ImageKey.BOTTOM);
+            topEqual(Direction.WEST, ImageKey.TOP);
+
+        }
 
         private void frontEqual(Direction direction, ImageKey key)
         {

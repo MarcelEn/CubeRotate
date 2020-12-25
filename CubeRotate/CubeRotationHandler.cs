@@ -83,47 +83,57 @@ namespace CubeRotate
                     return Direction.SOUTH;
             }
         }
+        private ImageDescription turnRight(ImageDescription imageDescription)
+        {
+            imageDescription.Direction = turnRight(imageDescription.Direction);
+            return imageDescription;
+        }
+
+        private ImageDescription turnLeft(ImageDescription imageDescription)
+        {
+            imageDescription.Direction = turnLeft(imageDescription.Direction);
+            return imageDescription;
+        }
 
         public void flipUp()
         {
-            var newImageDescriptions = new List<ImageDescription>
+            imageDescriptions = new List<ImageDescription>
             {
                 getBottomImage(),
                 getFrontImage(),
                 getTopImage(),
                 getBackImage(),
-                getRightImage(),
-                getLeftImage()
+                turnRight(getRightImage()),
+                turnLeft(getLeftImage())
             };
-
-            imageDescriptions = newImageDescriptions;
-
-            getRightImage().Direction = turnRight(getRightImage().Direction);
-            getLeftImage().Direction = turnLeft(getLeftImage().Direction);
         }
         public void flipDown()
         {
-            var newImageDescriptions = new List<ImageDescription>
+            imageDescriptions = new List<ImageDescription>
             {
                 getTopImage(),
                 getBackImage(),
                 getBottomImage(),
                 getFrontImage(),
-                getRightImage(),
-                getLeftImage()
+                turnLeft(getRightImage()),
+                turnRight(getLeftImage())
             };
-
-            imageDescriptions = newImageDescriptions;
-
-            getRightImage().Direction = turnLeft(getRightImage().Direction);
-            getLeftImage().Direction = turnRight(getLeftImage().Direction);
         }
 
         public void flipRight()
         {
-            throw new NotImplementedException();
+            imageDescriptions = new List<ImageDescription>
+            {
+                turnLeft(getLeftImage()),
+                turnLeft(getTopImage()),
+                turnLeft(getRightImage()),
+                turnLeft(getBottomImage()),
+                turnLeft(getFrontImage()),
+                turnLeft(getBackImage())
+            };
         }
 
+       
 
         public void flipLeft()
         {

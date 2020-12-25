@@ -77,7 +77,8 @@ namespace CubeRotate
         }
         private void onRightClick(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("RIGHT");
+            cubeRotationHandler.flipRight();
+            updateImages();
         }
         private void onDownClick(object sender, RoutedEventArgs e)
         {
