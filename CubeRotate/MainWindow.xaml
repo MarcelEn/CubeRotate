@@ -30,29 +30,10 @@
             </Grid.RowDefinitions>
             
             
-            <StackPanel Grid.Column="0" Grid.Row="1">
-                <Image Source="front-1.PNG" Width="150" Height="150" x:Name="frontImage" />
-            </StackPanel>
-            
-            <StackPanel Grid.Column="0" Grid.Row="1">
-                <Canvas Height="150" Width="150">
-                    <Canvas.Background>
-                        <VisualBrush Visual="{Binding ElementName=frontImage}">
-                            <VisualBrush.Transform>
-                                <RotateTransform Angle="0" CenterX="75" CenterY="75"/>
-                            </VisualBrush.Transform>
-                        </VisualBrush>
-                    </Canvas.Background>
-                </Canvas>
-            </StackPanel>
-
-
-            
-
             
             
             <StackPanel Grid.Column="0" Grid.Row="1">
-                <Image Source="front-1.PNG" Width="150" Height="150" x:Name="rightImage" />
+                <Image Source="5.PNG" Width="150" Height="150" x:Name="rightImage" />
             </StackPanel>
 
             <StackPanel Grid.Column="1" Grid.Row="1">
@@ -74,7 +55,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="0" Grid.Row="1">
-                <Image Source="front-1.PNG" Width="150" Height="150" x:Name="upperImage" />
+                <Image Source="2.PNG" Width="150" Height="150" x:Name="upperImage" />
             </StackPanel>
 
             <StackPanel Grid.Column="0" Grid.Row="0">
@@ -89,9 +70,25 @@
                     <Canvas.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleY="0.5" CenterY="153" />
-                            <SkewTransform CenterX="150" CenterY="150" AngleX="-45" AngleY="0" />
+                            <SkewTransform CenterX="150" CenterY="152" AngleX="-45" AngleY="0" />
                         </TransformGroup>
                     </Canvas.RenderTransform>
+                </Canvas>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="1">
+                <Image Source="1.png" Width="150" Height="150" x:Name="frontImage" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="1">
+                <Canvas Height="150" Width="150">
+                    <Canvas.Background>
+                        <VisualBrush Visual="{Binding ElementName=frontImage}">
+                            <VisualBrush.Transform>
+                                <RotateTransform Angle="0" CenterX="75" CenterY="75"/>
+                            </VisualBrush.Transform>
+                        </VisualBrush>
+                    </Canvas.Background>
                 </Canvas>
             </StackPanel>
         </Grid>
