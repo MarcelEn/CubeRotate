@@ -55,25 +55,6 @@ namespace CubeRotate
         {
             return imageDescriptions.ToArray()[3];
         }
-
-        public void flipUp()
-        {
-            var newImageDescriptions = new List<ImageDescription>
-            {
-                getTopImage(),
-                getBackImage(),
-                getBottomImage(),
-                getFrontImage(),
-                getRightImage(),
-                getLeftImage()
-            };
-
-            imageDescriptions = newImageDescriptions;
-
-            getRightImage().Direction = turnLeft(getRightImage().Direction);
-            getLeftImage().Direction = turnRight(getLeftImage().Direction);
-        }
-
         private Direction turnRight(Direction currentDirection)
         {
             switch(currentDirection)
@@ -103,17 +84,46 @@ namespace CubeRotate
             }
         }
 
+        public void flipUp()
+        {
+            var newImageDescriptions = new List<ImageDescription>
+            {
+                getBottomImage(),
+                getFrontImage(),
+                getTopImage(),
+                getBackImage(),
+                getRightImage(),
+                getLeftImage()
+            };
 
+            imageDescriptions = newImageDescriptions;
+
+            getRightImage().Direction = turnRight(getRightImage().Direction);
+            getLeftImage().Direction = turnLeft(getLeftImage().Direction);
+        }
+        public void flipDown()
+        {
+            var newImageDescriptions = new List<ImageDescription>
+            {
+                getTopImage(),
+                getBackImage(),
+                getBottomImage(),
+                getFrontImage(),
+                getRightImage(),
+                getLeftImage()
+            };
+
+            imageDescriptions = newImageDescriptions;
+
+            getRightImage().Direction = turnLeft(getRightImage().Direction);
+            getLeftImage().Direction = turnRight(getLeftImage().Direction);
+        }
 
         public void flipRight()
         {
             throw new NotImplementedException();
         }
 
-        public void flipDown()
-        {
-            throw new NotImplementedException();
-        }
 
         public void flipLeft()
         {

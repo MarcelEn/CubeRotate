@@ -72,7 +72,6 @@ namespace CubeRotate
 
         private void onUpClick(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("UP");
             cubeRotationHandler.flipUp();
             updateImages();
         }
@@ -82,7 +81,8 @@ namespace CubeRotate
         }
         private void onDownClick(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("DOWN");
+            cubeRotationHandler.flipDown();
+            updateImages();
         }
         private void onLeftClick(object sender, RoutedEventArgs e)
         {

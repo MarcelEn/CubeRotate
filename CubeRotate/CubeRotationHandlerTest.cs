@@ -28,14 +28,29 @@ namespace CubeRotate
         {
             Handler.flipUp();
 
+
+            frontEqual(Direction.SOUTH, ImageKey.BOTTOM);
+            topEqual(Direction.NORTH, ImageKey.FRONT);
+            backEqual(Direction.NORTH, ImageKey.TOP);
+            bottomEqual(Direction.SOUTH, ImageKey.BACK);
+
+            leftEqual(Direction.NORTH, ImageKey.LEFT);
+            rightEqual(Direction.NORTH, ImageKey.RIGHT);
+        }
+
+        [Test]
+        public void itCorrectlyFlipsDown()
+        {
+            Handler.flipDown();
+
+
             frontEqual(Direction.NORTH, ImageKey.TOP);
             topEqual(Direction.SOUTH, ImageKey.BACK);
             backEqual(Direction.SOUTH, ImageKey.BOTTOM);
             bottomEqual(Direction.NORTH, ImageKey.FRONT);
-            
+
             leftEqual(Direction.SOUTH, ImageKey.LEFT);
             rightEqual(Direction.SOUTH, ImageKey.RIGHT);
-            
         }
 
         private void frontEqual(Direction direction, ImageKey key)
