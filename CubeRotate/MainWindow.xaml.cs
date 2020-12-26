@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace CubeRotate
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -87,7 +84,8 @@ namespace CubeRotate
         }
         private void onLeftClick(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("LEFT");
+            cubeRotationHandler.flipLeft();
+            updateImages();
         }
         private void onTurnLeftClick(object sender, RoutedEventArgs e)
         {
