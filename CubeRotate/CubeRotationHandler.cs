@@ -163,7 +163,15 @@ namespace CubeRotate
 
         public void turnLeft()
         {
-            throw new NotImplementedException();
+            imageDescriptions = new List<ImageDescription>
+            {
+                turnLeft(getFrontImage()),
+                getRightImage(),
+                turnRight(getBackImage()),
+                turnRight(turnRight(getLeftImage())),
+                turnRight(turnRight(getBottomImage())),
+                getTopImage(),
+            };
         }
 
       

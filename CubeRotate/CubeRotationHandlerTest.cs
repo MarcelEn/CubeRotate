@@ -17,10 +17,10 @@ namespace CubeRotate
         {
             frontEqual(Direction.NORTH, ImageKey.FRONT);
             topEqual(Direction.NORTH, ImageKey.TOP);
-            rightEqual(Direction.WEST, ImageKey.RIGHT);
-            leftEqual(Direction.EAST, ImageKey.LEFT);
             backEqual(Direction.SOUTH, ImageKey.BACK);
             bottomEqual(Direction.SOUTH, ImageKey.BOTTOM);
+            rightEqual(Direction.WEST, ImageKey.RIGHT);
+            leftEqual(Direction.EAST, ImageKey.LEFT);
         }
 
         [Test]
@@ -32,8 +32,8 @@ namespace CubeRotate
             topEqual(Direction.NORTH, ImageKey.FRONT);
             backEqual(Direction.NORTH, ImageKey.TOP);
             bottomEqual(Direction.SOUTH, ImageKey.BACK);
-            leftEqual(Direction.NORTH, ImageKey.LEFT);
             rightEqual(Direction.NORTH, ImageKey.RIGHT);
+            leftEqual(Direction.NORTH, ImageKey.LEFT);
         }
 
         [Test]
@@ -45,8 +45,8 @@ namespace CubeRotate
             topEqual(Direction.SOUTH, ImageKey.BACK);
             backEqual(Direction.SOUTH, ImageKey.BOTTOM);
             bottomEqual(Direction.NORTH, ImageKey.FRONT);
-            leftEqual(Direction.SOUTH, ImageKey.LEFT);
             rightEqual(Direction.SOUTH, ImageKey.RIGHT);
+            leftEqual(Direction.SOUTH, ImageKey.LEFT);
         }
 
         [Test]
@@ -55,11 +55,11 @@ namespace CubeRotate
             Handler.flipRight();
 
             frontEqual(Direction.NORTH, ImageKey.LEFT);
+            topEqual(Direction.WEST, ImageKey.TOP);
             backEqual(Direction.SOUTH, ImageKey.RIGHT);
+            bottomEqual(Direction.EAST, ImageKey.BOTTOM);
             rightEqual(Direction.WEST, ImageKey.FRONT);
             leftEqual(Direction.EAST, ImageKey.BACK);
-            bottomEqual(Direction.EAST, ImageKey.BOTTOM);
-            topEqual(Direction.WEST, ImageKey.TOP);
 
         }
 
@@ -69,11 +69,11 @@ namespace CubeRotate
             Handler.flipLeft();
 
             frontEqual(Direction.NORTH, ImageKey.RIGHT);
+            topEqual(Direction.EAST, ImageKey.TOP);
             backEqual(Direction.SOUTH, ImageKey.LEFT);
+            bottomEqual(Direction.WEST, ImageKey.BOTTOM);
             rightEqual(Direction.WEST, ImageKey.BACK);
             leftEqual(Direction.EAST, ImageKey.FRONT);
-            bottomEqual(Direction.WEST, ImageKey.BOTTOM);
-            topEqual(Direction.EAST, ImageKey.TOP);
         }
 
         [Test]
@@ -83,10 +83,23 @@ namespace CubeRotate
 
             frontEqual(Direction.EAST, ImageKey.FRONT);
             topEqual(Direction.EAST, ImageKey.LEFT);
-            rightEqual(Direction.NORTH, ImageKey.TOP);
             backEqual(Direction.EAST, ImageKey.BACK);
-            leftEqual(Direction.NORTH, ImageKey.BOTTOM);
             bottomEqual(Direction.EAST, ImageKey.RIGHT);
+            rightEqual(Direction.NORTH, ImageKey.TOP);
+            leftEqual(Direction.NORTH, ImageKey.BOTTOM);
+        }
+
+        [Test]
+        public void itCorrectlyTurnsLeft()
+        {
+            Handler.turnLeft();
+
+            frontEqual(Direction.WEST, ImageKey.FRONT);
+            topEqual(Direction.WEST, ImageKey.RIGHT);
+            backEqual(Direction.WEST, ImageKey.BACK);
+            bottomEqual(Direction.WEST, ImageKey.LEFT);
+            rightEqual(Direction.NORTH, ImageKey.BOTTOM);
+            leftEqual(Direction.NORTH, ImageKey.TOP);
         }
 
         private void frontEqual(Direction direction, ImageKey key)
