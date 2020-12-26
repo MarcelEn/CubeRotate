@@ -76,6 +76,19 @@ namespace CubeRotate
             topEqual(Direction.EAST, ImageKey.TOP);
         }
 
+        [Test]
+        public void itCorrectlyTurnsRight()
+        {
+            Handler.turnRight();
+
+            frontEqual(Direction.EAST, ImageKey.FRONT);
+            topEqual(Direction.EAST, ImageKey.LEFT);
+            rightEqual(Direction.NORTH, ImageKey.TOP);
+            backEqual(Direction.EAST, ImageKey.BACK);
+            leftEqual(Direction.NORTH, ImageKey.BOTTOM);
+            bottomEqual(Direction.EAST, ImageKey.RIGHT);
+        }
+
         private void frontEqual(Direction direction, ImageKey key)
         {
             Assert.AreEqual(direction, Handler.getFrontImage().Direction);

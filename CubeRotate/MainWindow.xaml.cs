@@ -93,7 +93,8 @@ namespace CubeRotate
         }
         private void onTurnRightClick(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("TURN_RIGHT");
+            cubeRotationHandler.turnRight();
+            updateImages();
         }
     }
 }
