@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CubeRotate
 {
@@ -55,45 +51,6 @@ namespace CubeRotate
         {
             return imageDescriptions.ToArray()[3];
         }
-        private Direction turnRight(Direction currentDirection)
-        {
-            switch(currentDirection)
-            {
-                case Direction.NORTH:
-                    return Direction.EAST;
-                case Direction.EAST:
-                    return Direction.SOUTH;
-                case Direction.SOUTH:
-                    return Direction.WEST;
-                default:
-                    return Direction.NORTH;
-            }
-        }
-        private Direction turnLeft(Direction currentDirection)
-        {
-            switch (currentDirection)
-            {
-                case Direction.NORTH:
-                    return Direction.WEST;
-                case Direction.EAST:
-                    return Direction.NORTH;
-                case Direction.SOUTH:
-                    return Direction.EAST;
-                default:
-                    return Direction.SOUTH;
-            }
-        }
-        private ImageDescription turnRight(ImageDescription imageDescription)
-        {
-            imageDescription.Direction = turnRight(imageDescription.Direction);
-            return imageDescription;
-        }
-
-        private ImageDescription turnLeft(ImageDescription imageDescription)
-        {
-            imageDescription.Direction = turnLeft(imageDescription.Direction);
-            return imageDescription;
-        }
 
         public void flipUp()
         {
@@ -103,8 +60,8 @@ namespace CubeRotate
                 getFrontImage(),
                 getTopImage(),
                 getBackImage(),
-                turnRight(getRightImage()),
-                turnLeft(getLeftImage())
+                getRightImage().TurnRight(),
+                getLeftImage().TurnLeft()
             };
         }
         public void flipDown()
@@ -115,8 +72,8 @@ namespace CubeRotate
                 getBackImage(),
                 getBottomImage(),
                 getFrontImage(),
-                turnLeft(getRightImage()),
-                turnRight(getLeftImage())
+                getRightImage().TurnLeft(),
+                getLeftImage().TurnRight()
             };
         }
 
@@ -124,12 +81,12 @@ namespace CubeRotate
         {
             imageDescriptions = new List<ImageDescription>
             {
-                turnLeft(getLeftImage()),
-                turnLeft(getTopImage()),
-                turnLeft(getRightImage()),
-                turnLeft(getBottomImage()),
-                turnLeft(getFrontImage()),
-                turnLeft(getBackImage())
+                getLeftImage().TurnLeft(),
+                getTopImage().TurnLeft(),
+                getRightImage().TurnLeft(),
+                getBottomImage().TurnLeft(),
+                getFrontImage().TurnLeft(),
+                getBackImage().TurnLeft()
             };
         }
 
@@ -139,12 +96,12 @@ namespace CubeRotate
         {
             imageDescriptions = new List<ImageDescription>
             {
-                turnRight(getRightImage()),
-                turnRight(getTopImage()),
-                turnRight(getLeftImage()),
-                turnRight(getBottomImage()),
-                turnRight(getBackImage()),
-                turnRight(getFrontImage()),
+                getRightImage().TurnRight(),
+                getTopImage().TurnRight(),
+                getLeftImage().TurnRight(),
+                getBottomImage().TurnRight(),
+                getBackImage().TurnRight(),
+                getFrontImage().TurnRight()
             };
         }
 
@@ -152,12 +109,12 @@ namespace CubeRotate
         {
             imageDescriptions = new List<ImageDescription>
             {
-                turnRight(getFrontImage()),
+                getFrontImage().TurnRight(),
                 getLeftImage(),
-                turnLeft(getBackImage()),
-                turnRight(turnRight(getRightImage())),
+                getBackImage().TurnLeft(),
+                getRightImage().TurnHalf(),
                 getTopImage(),
-                turnRight(turnRight(getBottomImage())),
+                getBottomImage().TurnHalf()
             };
         }
 
@@ -165,12 +122,12 @@ namespace CubeRotate
         {
             imageDescriptions = new List<ImageDescription>
             {
-                turnLeft(getFrontImage()),
+                getFrontImage().TurnLeft(),
                 getRightImage(),
-                turnRight(getBackImage()),
-                turnRight(turnRight(getLeftImage())),
-                turnRight(turnRight(getBottomImage())),
-                getTopImage(),
+                getBackImage().TurnRight(),
+                getLeftImage().TurnHalf(),
+                getBottomImage().TurnHalf(),
+                getTopImage()
             };
         }
 

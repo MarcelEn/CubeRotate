@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CubeRotate
 {
@@ -48,12 +38,12 @@ namespace CubeRotate
             right.Source = imageSourceManager.getImageByKey(cubeRotationHandler.getRightImage().Key);
             top.Source = imageSourceManager.getImageByKey(cubeRotationHandler.getTopImage().Key);
 
-            rightRotateTransform.Angle = resolveAngel(cubeRotationHandler.getRightImage().Direction) + 90;
-            topRotateTransform.Angle = resolveAngel(cubeRotationHandler.getTopImage().Direction);
-            frontRotateTransform.Angle = resolveAngel(cubeRotationHandler.getFrontImage().Direction);
+            rightRotateTransform.Angle = resolveAngle(cubeRotationHandler.getRightImage().Direction) + 90;
+            topRotateTransform.Angle = resolveAngle(cubeRotationHandler.getTopImage().Direction);
+            frontRotateTransform.Angle = resolveAngle(cubeRotationHandler.getFrontImage().Direction);
         }
 
-        private double resolveAngel(Direction direction)
+        private double resolveAngle(Direction direction)
         {
             switch (direction)
             {
